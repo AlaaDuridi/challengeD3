@@ -27,8 +27,7 @@ validateResultMiddleware,
             result = x/y ;
             break; 
         }
-        res.status(200).json(result)
-    
+        res.send({ result })
 }); 
 
 export default router ; 
