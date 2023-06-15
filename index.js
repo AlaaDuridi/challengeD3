@@ -6,8 +6,8 @@ app.use(express.json());
 app.post('/calc' , 
 [
 body('x').exists().withMessage('x must be defined').isInt({ min: 1, max: 50 }).withMessage('x <=100 please'),
-body('y').exists().withMessage('x must be defined').isInt(),
-body('operation').exists().isIn('+','-','*','/').withMessage("valid operations are : +,-,*,/")
+body('y').exists().withMessage('x must be defined').isInt({min:1, max:50}),
+body('operation').exists().isIn(['+','-','*','/']).withMessage("valid operations are : +,-,*,/")
 ]
 , (req, res) => {
     const errors = validationResult(req);
